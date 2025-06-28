@@ -8,13 +8,14 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/', [LoginController::class, 'index']);
 });
 
-Route::group(['prefix' => '/'], function () {
+Route::group(['prefix' => 'login'], function () {
     Route::get('/', [LoginController::class, 'index']);
     Route::get('/index', [LoginController::class, 'index']);
 });
 
 Route::group(['prefix' => 'register'], function () {
     Route::get('/index', [RegisterController::class, 'index']);
+    Route::post('/save', [RegisterController::class, 'save']);
 });
 
 ?>

@@ -11,18 +11,19 @@
 
   <div class="wrapper">
     <h2>Registration</h2>
-    <form action="#" method="post">
+    <form action="{{ url('register/save')}}" method="post">
+        @csrf
       <div class="input-box">
-        <input type="text" placeholder="Enter your name" required>
+        <input type="text" placeholder="Enter your name" name ="name" required>
       </div>
       <div class="input-box">
-        <input type="email" placeholder="Enter your email" required>
+        <input type="email" placeholder="Enter your email"  name ="email" required>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Create password" required>
+        <input type="password" placeholder="Create password"  name ="password" required>
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Confirm password" required>
+        <input type="password" placeholder="Confirm password" name ="confirm password" required>
       </div>
       <div class="policy">
         <input type="checkbox">
