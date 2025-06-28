@@ -11,7 +11,7 @@
 
   <div class="wrapper">
     <h2>Login</h2>
-    <form action="#" method="post">
+    <form action="{{ url('home/index') }}" method="post">
       <div class="input-box">
         <input type="text" placeholder="username" required>
       </div>

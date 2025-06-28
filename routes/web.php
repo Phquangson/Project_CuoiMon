@@ -21,6 +21,7 @@ Route::group(['prefix' => 'register'], function () {
 
 Route::group(['prefix' => 'home'], function () {
     Route::get('/index', [HomeController::class, 'index']);
+    // Route::post('/index', [HomeController::class, 'index']);
 });
 
 
