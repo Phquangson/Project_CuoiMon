@@ -45,9 +45,10 @@ class RegisterController extends Controller
             'email' => $email,
             'password' => $password,
         ]);
+        return redirect('register/index')->with('success', 'Tạo tài khoản thành công!');
     } catch (\Throwable $th) {
+        return redirect('login/index')->with('error', 'Lỗi hệ thống: ' . $th->getMessage());
     }
-    return redirect('login/index');
 }
 
 }
