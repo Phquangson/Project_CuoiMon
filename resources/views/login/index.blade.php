@@ -10,32 +10,26 @@
 <body>
 
   <div class="wrapper">
-    <h2>Registration</h2>
+    <h2>Login</h2>
     <form action="#" method="post">
       <div class="input-box">
-        <input type="text" placeholder="Enter your name" required>
+        <input type="text" placeholder="username" required>
       </div>
       <div class="input-box">
-        <input type="email" placeholder="Enter your email" required>
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Create password" required>
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Confirm password" required>
+        <input type="password" placeholder="password" required>
       </div>
       <div class="policy">
         <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
+        <h3> Remember password</h3>
       </div>
       <div class="input-box button">
-        <input type="Submit" value="Register Now">
+        <input type="Submit" value="Login now">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="{{ url('/') }}">Login now</a></h3>
+        <h3>Already have an account? <a href="{{ url('register/index') }}">register now</a></h3>
       </div>
     </form>
   </div>
-
+  
 </body>
 </html>
