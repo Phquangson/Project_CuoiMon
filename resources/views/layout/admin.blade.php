@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('admin')}}/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="{{asset('admin')}}/login/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="{{asset('admin')}}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('admin')}}//login/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('admin')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('admin')}}/login/css/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="{{asset('admin')}}/css/style.css">
+    <link rel="stylesheet" href="{{asset('admin')}}/login/css/style.css">
 
     <title>Login #4</title>
 
@@ -68,9 +68,9 @@
     
     
 
-    <script src="{{asset('admin')}}/js/jquery-3.3.1.min.js"></script>
-    <script src="{{asset('admin')}}/js/popper.min.js"></script>
-    <script src="{{asset('admin')}}/js/bootstrap.min.js"></script>
-    <script src="{{asset('admin')}}/js/main.js"></script>
+    <script src="{{asset('admin')}}/login/js/jquery-3.3.1.min.js"></script>
+    <script src="{{asset('admin')}}/login/js/popper.min.js"></script>
+    <script src="{{asset('admin')}}/login/js/bootstrap.min.js"></script>
+    <script src="{{asset('admin')}}/login/js/main.js"></script>
   </body>
 </html>

@@ -22,21 +22,21 @@
             @csrf
 
             <div class="input-box ">
-                <input type="text" name="name" placeholder="your name" required>
+                <input type="text" name="name" placeholder="Your name" required>
                 @error('name')
                 <small style="color: red">{{ $message }}</small>
                 @enderror
             </div>
 
             <div class="input-box" style="margin-top: 25px;">
-                <input type="email" name="email" placeholder="your email" required>
+                <input type="email" name="email" placeholder="Your email" required>
                 @error('email')
                 <small style="color: red">{{ $message }}</small>
                 @enderror
             </div>
 
             <div class="input-box input-password" style="margin-top: 25px;">
-                <input type="password" id="password" name="password" placeholder="password" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
                 @error('password')
                 <small style="color: red">{{ $message }}</small>
                 @enderror

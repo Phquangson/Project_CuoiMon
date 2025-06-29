@@ -215,7 +215,7 @@ h2 {
 }
 
 .bg {
-  background-image: url("/admin/images/bg_1.jpg");
+  background-image: url("/admin/login/images/bg_1.jpg");
   background-size: cover;
   background-position: center;
 }
