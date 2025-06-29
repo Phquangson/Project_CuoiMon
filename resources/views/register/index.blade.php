@@ -37,9 +37,6 @@
 
             <div class="input-box input-password" style="margin-top: 25px;">
                 <input type="password" id="password" name="password" placeholder="password" required>
-                <span id="togglePassword" class="toggle-password">
-                    <i class="fa-solid fa-eye-slash"></i>
-                </span>
                 @error('password')
                 <small style="color: red">{{ $message }}</small>
                 @enderror
@@ -47,12 +44,14 @@
 
             <div class="input-box input-password" style="margin-top: 25px;">
                 <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm password" required>
-                <span id="toggleConfirmPassword" class="toggle-password">
-                    <i class="fa-solid fa-eye-slash"></i>
-                </span>
             </div>
 
-            <div class="policy">
+            <div class="policy" style="margin-top: 10px;">
+                <input type="checkbox" id="showPasswords">
+                <h3> Show password </h3>
+            </div>
+
+            <div class="policy" style="margin-top: 5px;">
                 <input type="checkbox" required>
                 <h3>I accept all terms & conditions</h3>
             </div>
@@ -97,7 +96,6 @@
         }, 500);
     </script>
     @endif
-
 
     <script src="{{asset('user')}}/js/register.js"> </script>
 
