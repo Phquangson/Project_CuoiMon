@@ -12,6 +12,7 @@ Route::group(['prefix' => '/'], function () {
 Route::group(['prefix' => 'login'], function () {
     Route::get('/', [LoginController::class, 'index']);
     Route::get('/index', [LoginController::class, 'index']);
+    Route::post('/postlogin', [LoginController::class, 'postlogin']);
 });
 
 Route::group(['prefix' => 'register'], function () {
@@ -23,5 +24,9 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/index', [HomeController::class, 'index']);
     // Route::post('/index', [HomeController::class, 'index']);
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
 
 ?>

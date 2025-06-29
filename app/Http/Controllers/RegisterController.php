@@ -15,40 +15,39 @@ class RegisterController extends Controller
     }
 
     public function save(Request $req)
-{
-    $req->validate([
-        'name' => [
-        'required',
-        'string',
-        'max:255',
-        'unique:users,name',
-        'regex:/^[a-zA-Z0-9]+$/',
-    ],
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|string|min:6|confirmed',
-    ], [
-        'name.unique' => 'Tên đã tồn tại.',
-        'email.unique' => 'Email đã được sử dụng.',
-        'name.required' => 'Vui lòng nhập tên.',
-        'email.required' => 'Vui lòng nhập email.',
-        'password.required' => 'Vui lòng nhập mật khẩu.',
-        'password.min' => 'Mật khẩu phải có ít nhất :min ký tự.',
-    ]);
-
-    $name = strtolower($req->name); 
-    $email = strtolower($req->email);        
-    $password = Hash::make($req->password);
-
-    try {
-        User::create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
+    {
+        $req->validate([
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+                'unique:users,name',
+                'regex:/^[a-zA-Z0-9]+$/',
+            ],
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6|confirmed',
+        ], [
+            'name.unique' => 'Tên đã tồn tại.',
+            'email.unique' => 'Email đã được sử dụng.',
+            'name.required' => 'Vui lòng nhập tên.',
+            'email.required' => 'Vui lòng nhập email.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.min' => 'Mật khẩu phải có ít nhất :min ký tự.',
         ]);
-        return redirect('register/index')->with('success', 'Tạo tài khoản thành công!');
-    } catch (\Throwable $th) {
-        return redirect('login/index')->with('error', 'Lỗi hệ thống: ' . $th->getMessage());
-    }
-}
 
+        $name = strtolower($req->name);
+        $email = strtolower($req->email);
+        $password = Hash::make($req->password);
+
+        try {
+            User::create([
+                'name' => $name,
+                'email' => $email,
+                'password' => $password,
+            ]);
+            return redirect('register/index')->with('success', 'Tạo tài khoản thành công!');
+        } catch (\Throwable $th) {
+            return redirect('login/index')->with('error', 'Lỗi hệ thống: ' . $th->getMessage());
+        }
+    }
 }
