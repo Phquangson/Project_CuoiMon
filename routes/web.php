@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,10 @@ Route::group(['prefix' => 'register'], function () {
 Route::group(['prefix' => 'home'], function () {
     Route::get('/index', [HomeController::class, 'index']);
     // Route::post('/index', [HomeController::class, 'index']);
+});
+
+Route::group(['prefix' => 'login_admin'], function () {
+    Route::get('/index', [LoginAdminController::class, 'index']);
 });
 
 Route::get('/dashboard', function () {
