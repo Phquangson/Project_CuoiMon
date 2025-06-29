@@ -24,5 +24,4 @@ Route::group(['prefix' => 'home'], function () {
     // Route::post('/index', [HomeController::class, 'index']);
 });
 
-
 ?>
