@@ -19,9 +19,9 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('admin')}}/template/assets/demo/demo.css" rel="stylesheet" />
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="">
@@ -160,7 +160,9 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Profile</a>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        Logout
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -207,27 +209,34 @@
     </script>
 </body>
 
+<!-- Modal Xác nhận Logout -->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Xác nhận đăng xuất</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Bạn có chắc chắn muốn đăng xuất không?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <form action="{{ route('admin.login') }}" method="GET">
-          <button type="submit" class="btn btn-danger">Đăng xuất</button>
-        </form>
-      </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm logout</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                Are you sure you want to logout?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                <button type="button" class="btn btn-danger" onclick="document.getElementById('logout-form').submit();">
+                    logout
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+
+<!-- Form Logout Ẩn -->
+<form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
 
 
 </html>

@@ -24,14 +24,13 @@ Route::group(['prefix' => 'register'], function () {
 
 Route::group(['prefix' => 'home'], function () {
     Route::get('/index', [HomeController::class, 'index']);
-    // Route::post('/index', [HomeController::class, 'index']);
 });
 
 Route::group(['prefix' => 'login_admin'], function () {
     Route::get('/index', [LoginAdminController::class, 'index']);
 });
 
-Route::group(['prefix' => 'template_admin'], function () {
+Route::middleware('auth:admin')->prefix('template_admin')->group(function () {
     Route::get('/dashboard', [TemplateController::class, 'dashboard']);
     Route::get('/icon', [TemplateController::class, 'icon']);
     Route::get('/maps', [TemplateController::class, 'maps']);
@@ -42,24 +41,10 @@ Route::group(['prefix' => 'template_admin'], function () {
     Route::get('/upgrade', [TemplateController::class, 'upgrade']);
 });
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
-
-
-
-
-Route::get('/login_admin/index', [LoginAdminController::class, 'showLoginForm'])->name('admin.login.form');
+Route::get('/login_admin/index', [LoginAdminController::class, 'showLoginForm'])->name('login');
 
 Route::post('/login_admin/index', [LoginAdminController::class, 'login'])->name('admin.login');
 
 Route::post('/admin/logout', [LoginAdminController::class, 'logout'])->name('admin.logout');
-
-Route::middleware('auth:admin')->group(function () {
-    Route::get('/template_admin/dashboard', function () {
-        return view('template_admin.dashboard');
-    });
-});
 
 ?>

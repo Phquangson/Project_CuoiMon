@@ -22,14 +22,14 @@
             @csrf
 
             <div class="input-box ">
-                <input type="text" name="name" placeholder="Your name" required>
+                <input type="text" name="name" value="{{ old('name')}}" placeholder="Your name" required>
                 @error('name')
                 <small style="color: red">{{ $message }}</small>
                 @enderror
             </div>
 
             <div class="input-box" style="margin-top: 25px;">
-                <input type="email" name="email" placeholder="Your email" required>
+                <input type="email" name="email" value="{{ old('email')}}" placeholder="Your email" required>
                 @error('email')
                 <small style="color: red">{{ $message }}</small>
                 @enderror

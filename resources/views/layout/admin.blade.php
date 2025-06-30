@@ -56,7 +56,7 @@
                     <input type="checkbox" name="remember" />
                     <div class="control__indicator"></div>
                   </label>
-                  <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  
                 </div>
 
                 <input type="submit" value="Log In" class="btn btn-block btn-primary">

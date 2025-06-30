@@ -23,10 +23,10 @@ class LoginAdminController extends Controller
         return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng.']);
     }
 
-    public function logout()
+   public function logout()
     {
-        Auth::guard('admin')->logout();
-        return redirect('/login_admin/index');
+        Auth::guard('admin')->logout(); 
+        return redirect()->route('admin.login'); 
     }
 
     public function dashboard()
