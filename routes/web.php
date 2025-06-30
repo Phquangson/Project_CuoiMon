@@ -47,4 +47,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
+
+
+
+Route::get('/login_admin/index', [LoginAdminController::class, 'showLoginForm'])->name('admin.login.form');
+
+Route::post('/login_admin/index', [LoginAdminController::class, 'login'])->name('admin.login');
+
+Route::post('/admin/logout', [LoginAdminController::class, 'logout'])->name('admin.logout');
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/template_admin/dashboard', function () {
+        return view('template_admin.dashboard');
+    });
+});
+
 ?>

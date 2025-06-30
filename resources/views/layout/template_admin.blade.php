@@ -18,6 +18,10 @@
     <link href="{{asset('admin')}}/template/assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('admin')}}/template/assets/demo/demo.css" rel="stylesheet" />
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="">
@@ -30,11 +34,8 @@
                     </div>
                     <!-- <p>CT</p> -->
                 </a>
-                <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-                    Creative Tim
-                    <!-- <div class="logo-image-big">
-            <img src="{{asset('admin')}}/template/assets/img/logo-big.png">
-          </div> -->
+                <a href="#" class="simple-text logo-normal">
+                    {{ auth('admin')->check() ? auth('admin')->user()->name : 'Admin' }}
                 </a>
             </div>
             <div class="sidebar-wrapper">
@@ -70,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('/template_admin/table_list.blade')}}">
+                        <a href="{{asset('/template_admin/table_list')}}">
                             <i class="nc-icon nc-tile-56"></i>
                             <p>Table List</p>
                         </a>
@@ -102,7 +103,7 @@
                                 <span class="navbar-toggler-bar bar3"></span>
                             </button>
                         </div>
-                        <a class="navbar-brand" href="javascript:;">Paper Dashboard 2</a>
+                        <a class="navbar-brand" href="javascript:;">Dashboard</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -112,7 +113,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <form>
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search{{asset('admin')}}/template.">
+                                <input type="text" value="" class="form-control" placeholder="Tìm kiếm">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="nc-icon nc-zoom-split"></i>
@@ -150,6 +151,18 @@
                                     </p>
                                 </a>
                             </li>
+                            <li class="nav-item btn-rotate dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-regular fa-user"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Profile</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -161,18 +174,9 @@
             <footer class="footer footer-black  footer-white ">
                 <div class="container-fluid">
                     <div class="row">
-                        <nav class="footer-nav">
-                            <ul>
-                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-                            </ul>
-                        </nav>
                         <div class="credits ml-auto">
                             <span class="copyright">
-                                © <script>
-                                    document.write(new Date().getFullYear())
-                                </script>2025, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                                Đồ Án Kì 1 Aptech C2409G1
                             </span>
                         </div>
                     </div>
@@ -202,5 +206,28 @@
         });
     </script>
 </body>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xác nhận đăng xuất</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn đăng xuất không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <form action="{{ route('admin.login') }}" method="GET">
+          <button type="submit" class="btn btn-danger">Đăng xuất</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 </html>
