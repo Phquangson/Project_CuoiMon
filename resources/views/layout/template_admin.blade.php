@@ -40,49 +40,49 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active ">
-                        <a href="./dashboard.html">
+                        <a href="{{asset('/template_admin/dashboard')}}">
                             <i class="nc-icon nc-bank"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./icons.html">
+                        <a href="{{asset('/template_admin/icon')}}">
                             <i class="nc-icon nc-diamond"></i>
                             <p>Icons</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./map.html">
+                        <a href="{{asset('/template_admin/maps')}}">
                             <i class="nc-icon nc-pin-3"></i>
                             <p>Maps</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./notifications.html">
+                        <a href="{{asset('/template_admin/notifications')}}">
                             <i class="nc-icon nc-bell-55"></i>
                             <p>Notifications</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./user.html">
+                        <a href="{{asset('/template_admin/user_people')}}">
                             <i class="nc-icon nc-single-02"></i>
                             <p>User Profile</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./tables.html">
+                        <a href="{{asset('/template_admin/table_list.blade')}}">
                             <i class="nc-icon nc-tile-56"></i>
                             <p>Table List</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./typography.html">
+                        <a href="{{asset('/template_admin/typography')}}">
                             <i class="nc-icon nc-caps-small"></i>
                             <p>Typography</p>
                         </a>
                     </li>
                     <li class="active-pro">
-                        <a href="./upgrade.html">
+                        <a href="{{asset('/template_admin/upgrade')}}">
                             <i class="nc-icon nc-spaceship"></i>
                             <p>Upgrade to PRO</p>
                         </a>
