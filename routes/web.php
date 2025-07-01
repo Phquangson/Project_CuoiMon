@@ -47,7 +47,7 @@ Route::post('/login_admin/index', [LoginAdminController::class, 'login'])->name(
 
 Route::post('/admin/logout', [LoginAdminController::class, 'logout'])->name('admin.logout');
 
-Route::get('/send-mail', [EmailsController::class, 'WelcomeEmail']);
+
 
 Route::get('/email/verify', [VerificationController::class, 'notice'])
     ->middleware('auth')

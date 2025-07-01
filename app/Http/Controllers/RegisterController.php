@@ -46,7 +46,7 @@ class RegisterController extends Controller
                 'password' => $password,
             ]);
             $user->sendEmailVerificationNotification();
-            return redirect()->back()->with('success_verify', 'Đăng ký thành công! Vui lòng kiểm tra email để xác minh.');
+            return redirect()->back()->with('success_verify', true);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Đăng ký thất bại: ' . $th->getMessage());
         }

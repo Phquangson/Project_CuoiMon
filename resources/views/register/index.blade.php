@@ -18,12 +18,6 @@
 
     <div class="wrapper">
         <h2>Registration</h2>
-
-        @if(session('success_verify'))
-        <div style="color: green; text-align: center; font-weight: bold; margin-top: 10px;">
-            {{ session('success_verify') }}
-        </div>
-        @endif
         <form action="{{ url('register/save') }}" method="post">
             @csrf
 
@@ -71,6 +65,23 @@
             </div>
         </form>
     </div>
+
+    @if(session('success_verify'))
+    <div id="successModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <span> Registration successful! </span>
+                <button class="custom-modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="custom-modal-body">
+                <p>Please check your email to verify your account.</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    @endif
 
     <script src="{{asset('user')}}/js/register.js"> </script>
 
