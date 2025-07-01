@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginAdminController extends Controller
 {
-    public function showLoginForm()
+    public function index()
     {
         return view('login_admin/index');
     }
