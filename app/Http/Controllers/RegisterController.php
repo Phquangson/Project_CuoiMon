@@ -40,14 +40,15 @@ class RegisterController extends Controller
         $password = Hash::make($req->password);
 
         try {
-            User::create([
+            $user = User::create([
                 'name' => $name,
                 'email' => $email,
                 'password' => $password,
             ]);
-            return redirect('register/index')->with('success', 'Tạo tài khoản thành công!');
+            $user->sendEmailVerificationNotification();
+            return redirect()->back()->with('success_verify', 'Đăng ký thành công! Vui lòng kiểm tra email để xác minh.');
         } catch (\Throwable $th) {
-            return redirect('login/index')->with('error', 'Lỗi hệ thống: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Đăng ký thất bại: ' . $th->getMessage());
         }
     }
 }

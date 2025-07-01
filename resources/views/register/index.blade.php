@@ -18,6 +18,12 @@
 
     <div class="wrapper">
         <h2>Registration</h2>
+
+        @if(session('success_verify'))
+        <div style="color: green; text-align: center; font-weight: bold; margin-top: 10px;">
+            {{ session('success_verify') }}
+        </div>
+        @endif
         <form action="{{ url('register/save') }}" method="post">
             @csrf
 
@@ -65,37 +71,6 @@
             </div>
         </form>
     </div>
-
-    @if (session('success'))
-    <div id="successModal" class="custom-modal">
-        <div class="custom-modal-content">
-            <div class="custom-modal-header">
-                <h5>Đăng ký thành công!</h5>
-            </div>
-            <div class="modal-body" >
-                <div>chuyển hướng sau <span id="countdown">5</span>s</div>
-            </div>
-            <div class="custom-modal-footer">
-                <button onclick="closeModal()">OK</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let seconds = 5;
-        const countdownEl = document.getElementById("countdown");
-        
-        const countdown = setInterval(() => {
-            seconds--;
-            countdownEl.textContent = seconds;
-            
-            if (seconds <= 0) {
-                clearInterval(countdown);
-                window.location.href = "{{url('login/index')}}";
-            }
-        }, 500);
-    </script>
-    @endif
 
     <script src="{{asset('user')}}/js/register.js"> </script>
 
