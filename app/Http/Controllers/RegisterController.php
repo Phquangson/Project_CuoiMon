@@ -27,12 +27,12 @@ class RegisterController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
         ], [
-            'name.unique' => 'Tên đã tồn tại.',
-            'email.unique' => 'Email đã được sử dụng.',
-            'name.required' => 'Vui lòng nhập tên.',
-            'email.required' => 'Vui lòng nhập email.',
-            'password.required' => 'Vui lòng nhập mật khẩu.',
-            'password.min' => 'Mật khẩu phải có ít nhất :min ký tự.',
+            'name.unique' => 'Name already exists.',
+            'email.unique' => 'Email is already in use.',
+            'name.required' => 'Please enter name.',
+            'email.required' => 'Please enter email.',
+            'password.required' => 'Please enter password.',
+            'password.min' => 'Password must have at least :min characters.',
         ]);
 
         $name = strtolower($req->name);
@@ -48,7 +48,7 @@ class RegisterController extends Controller
             $user->sendEmailVerificationNotification();
             return redirect()->back()->with('success_verify', true);
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Đăng ký thất bại: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Registration failed: ' . $th->getMessage());
         }
     }
 }

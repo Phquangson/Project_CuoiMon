@@ -8,3 +8,8 @@ toggle.addEventListener("click", function () {
     this.classList.toggle("fa-eye");
     this.classList.toggle("fa-eye-slash");
 });
+
+// Close Model
+function closeVerifyBox() {
+      document.getElementById('verifyOverlay')?.remove();
+  }

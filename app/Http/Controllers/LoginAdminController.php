@@ -20,7 +20,7 @@ class LoginAdminController extends Controller
             return redirect()->intended('/template_admin/dashboard');
         }
 
-        return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng.']);
+        return back()->withErrors(['email' => 'Incorrect email or password.']);
     }
 
    public function logout()

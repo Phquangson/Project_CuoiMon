@@ -17,34 +17,32 @@ class LoginController extends Controller
     }
 
     public function postlogin(Request $req)
-{
-    $req->validate([
-        'email' => 'required|email',
-        'password' => 'required|string|min:6',
-    ], [
-        'email.required' => 'Vui lòng nhập email.',
-        'email.email' => 'Email không đúng định dạng.',
-        'password.required' => 'Vui lòng nhập mật khẩu.',
-        'password.min' => 'Mật khẩu phải có ít nhất :min ký tự.',
-    ]);
+    {
+        $req->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:6',
+        ], [
+            'email.required' => 'Please enter email.',
+            'email.email' => 'Email is not in correct format.',
+            'password.required' => 'Please enter password.',
+            'password.min' => 'Password must have at least :min characters.',
+        ]);
 
-    $user = User::where('email', $req->email)->first();
+        $user = User::where('email', $req->email)->first();
 
-    if (!$user) {
-        return back()->withErrors(['email' => 'Email không tồn tại'])->withInput();
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email does not exist'])->withInput();
+        }
+
+        if (!Hash::check($req->password, $user->password)) {
+            return back()->withErrors(['password' => 'Password is incorrect'])->withInput();
+        }
+
+        if (!$user->hasVerifiedEmail()) {
+            return back()->with('need_verify', true)->withInput();
+        }
+
+        Auth::login($user);
+        return redirect()->intended('/home/index');
     }
-
-    if (!Hash::check($req->password, $user->password)) {
-        return back()->withErrors(['password' => 'Mật khẩu không đúng'])->withInput();
-    }
-
-    if (!$user->hasVerifiedEmail()) {
-        return redirect()->route('verification.notice')
-            ->with('error', 'Vui lòng xác minh email trước khi đăng nhập.');
-    }
-
-    Auth::login($user);
-    return redirect()->intended('/home/index');
-}
-
 }
